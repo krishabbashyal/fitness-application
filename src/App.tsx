@@ -1,20 +1,18 @@
-import { useEffect, useState } from 'react';
-import db from '../firebase/firebaseConfig'; // Import your Firestore configuration
-import { doc, getDoc } from 'firebase/firestore';
-
+import { useEffect, useState } from "react";
+import db from "../firebase/firebaseConfig"; // Import your Firestore configuration
+import { doc, getDoc } from "firebase/firestore";
 
 function App() {
   const [status, setStatus] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
-      const testCollection = doc(db, 'testCollection', 'connectionStatus')
-      const connectionStatus = await getDoc(testCollection)
+      const testCollection = doc(db, "testCollection", "connectionStatus");
+      const connectionStatus = await getDoc(testCollection);
 
-      if (connectionStatus.exists()){
-        setStatus(connectionStatus.data().firebaseConnected)
+      if (connectionStatus.exists()) {
+        setStatus(connectionStatus.data().firebaseConnected);
       }
-
     };
     fetchData();
   }, []);
