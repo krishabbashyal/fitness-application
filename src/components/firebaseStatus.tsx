@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import db from "../../firebase/firebaseConfig"; // Import your Firestore configuration
+import { db } from "../../firebase/firebaseConfig"; // Import your Firestore configuration
 import { doc, getDoc } from "firebase/firestore";
 
 function App() {
