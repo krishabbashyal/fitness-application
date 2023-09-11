@@ -11,6 +11,7 @@ function RegisterPage() {
 
   const submitHandler = async () => {
     if (confirmPassword === password) {
+      event?.preventDefault()
       try {
         await createUserWithEmailAndPassword(auth, email, password);
 
@@ -33,16 +34,18 @@ function RegisterPage() {
 
   return (
     <div className="text-center justify-center align-middle mt-24 mx-4">
-      <h1 className="mb-4">Register a new account </h1>
-      <div className="flex flex-col space-y-2">
-        <input type="email" placeholder="Email" onChange={(event) => setEmail(event.target.value)} className="rounded-md p-3 border border-black h-10" />
-        <input type="password" placeholder="Password" onChange={(event) => setPassword(event.target.value)} className="rounded-md p-3 border border-black h-10" />
-        <input type="password" placeholder="Confirm password" onChange={(event) => setConfirmPassword(event.target.value)} className="rounded-md p-3 border border-black h-10"/>
-        <button onClick={submitHandler} className="rounded-md p-4 bg-blue-200 mt-3">Register</button>
-      </div>
-      <div className="mt-16">
-        <Link to={"/login"}>Login Instead</Link>
-      </div>
+      <form>
+        <h1 className="mb-4">Register a new account </h1>
+        <div className="flex flex-col space-y-2">
+          <input type="email" placeholder="Email" onChange={(event) => setEmail(event.target.value)} className="rounded-md p-3 border border-black h-10" />
+          <input type="password" placeholder="Password" onChange={(event) => setPassword(event.target.value)} className="rounded-md p-3 border border-black h-10" />
+          <input type="password" placeholder="Confirm password" onChange={(event) => setConfirmPassword(event.target.value)} className="rounded-md p-3 border border-black h-10"/>
+          <button onClick={submitHandler} className="rounded-md p-4 bg-blue-200 mt-3">Register</button>
+        </div>
+        <div className="mt-16">
+          <Link to={"/login"}>Login Instead</Link>
+        </div>
+      </form>
     </div>
   );
 }
