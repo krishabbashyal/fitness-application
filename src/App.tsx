@@ -10,7 +10,6 @@ const router = Router([
   { path: "/login", element: <LoginPage /> },
   { path: "/register", element: <RegisterPage /> },
   { path: "/dashboard", element: <DashboardPage /> },
-
 ]);
 
 // Do not make changes to this unless we need to alter the router
