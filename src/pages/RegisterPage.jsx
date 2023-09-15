@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { supabase } from "../library/supabase";
 
 function RegisterPage() {
   const [email, setEmail] = useState("");
@@ -9,26 +10,20 @@ function RegisterPage() {
 
   const submitHandler = async () => {
     if (confirmPassword === password) {
-      event?.preventDefault()
-      try {
-        await createUserWithEmailAndPassword(auth, email, password);
-
-        // const userId = newUser.user.uid
-        // const userReference = collection(db, "users")
-        // await addDoc(userReference, {
-        //   uid: userId,
-        //   name: name,
-        // })
-
-        console.log("User has been created");
+      let { data, error } = await supabase.auth.signUp({
+        email: email,
+        password: password
+      }) 
+      if (error) {
+        console.log(error.message)
+      } else {
+        console.log(data)
         customRedirect("/dashboard");
-      } catch (error) {
-        console.log(error);
       }
     } else {
-      alert("Passwords Do Not Match");
+      alert("Passwords do not match")
     }
-  };
+  }
 
   return (
     <div className="text-center justify-center align-middle mt-24 mx-4">
