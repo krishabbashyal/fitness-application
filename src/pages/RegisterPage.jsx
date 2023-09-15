@@ -8,7 +8,8 @@ function RegisterPage() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const customRedirect = useNavigate();
 
-  const submitHandler = async () => {
+  const submitHandler = async (event) => {
+    event.preventDefault()
     if (confirmPassword === password) {
       let { data, error } = await supabase.auth.signUp({
         email: email,
