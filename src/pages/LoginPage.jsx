@@ -1,19 +1,24 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { supabase } from "../library/supabase";
 
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const customRedirect = useNavigate();
 
-  const submitHandler = async () => {
-    event?.preventDefault()
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-      console.log("User has been logged in");
+  const submitHandler = async (event) => {
+    event.preventDefault();
+    let { data, error } = await supabase.auth.signInWithPassword({
+      email: email,
+      password: password,
+    });
+
+    if (error) {
+      console.log(error.message);
+    } else {
+      console.log(data)
       customRedirect("/dashboard");
-    } catch (error) {
-      console.log(error);
     }
   };
 
