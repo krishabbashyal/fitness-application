@@ -1,5 +1,3 @@
-import { auth } from "../../firebase/firebaseConfig";
-import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
 function DashboardPage() {
