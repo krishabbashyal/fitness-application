@@ -9,35 +9,56 @@ function RegisterPage() {
   const customRedirect = useNavigate();
 
   const submitHandler = async (event) => {
-    event.preventDefault()
+    event.preventDefault();
     if (confirmPassword === password) {
       let { data, error } = await supabase.auth.signUp({
         email: email,
-        password: password
-      }) 
+        password: password,
+      });
       if (error) {
-        console.log(error.message)
+        console.log(error.message);
       } else {
-        console.log(data)
+        console.log(data);
         customRedirect("/dashboard");
       }
     } else {
-      alert("Passwords do not match")
+      alert("Passwords do not match");
     }
-  }
+  };
 
   return (
-    <div className="text-center justify-center align-middle mt-24 mx-4">
+    <div className="text-center justify-center align-middle mt-32 mx-4 max-w-lg">
+      <h1 className="mb-6 text-[32px] font-semibold">Register</h1>
       <form>
-        <h1 className="mb-4">Register a new account </h1>
-        <div className="flex flex-col space-y-2">
-          <input type="email" placeholder="Email" onChange={(event) => setEmail(event.target.value)} className="rounded-md p-3 border border-black h-10" />
-          <input type="password" placeholder="Password" onChange={(event) => setPassword(event.target.value)} className="rounded-md p-3 border border-black h-10" />
-          <input type="password" placeholder="Confirm password" onChange={(event) => setConfirmPassword(event.target.value)} className="rounded-md p-3 border border-black h-10"/>
-          <button onClick={submitHandler} className="rounded-md p-4 bg-blue-200 mt-3">Register</button>
+        <div className="flex flex-col space-y-3">
+          <input
+            type="email"
+            placeholder="Email"
+            className="rounded-lg pl-3 border placeholder:font-medium border-[#E8ECF4] h-14"
+            onChange={(event) => setEmail(event.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            className="rounded-lg pl-3 border placeholder:font-medium border-[#E8ECF4] h-14"
+            onChange={(event) => setPassword(event.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Confirm password"
+            className="rounded-lg pl-3 border placeholder:font-medium border-[#E8ECF4] h-14 mb-4"
+            onChange={(event) => setConfirmPassword(event.target.value)}
+          />
+
+          <button onClick={submitHandler} className="rounded-md p-4 bg-[#475E88] font-semibold text-white">
+            Register
+          </button>
         </div>
-        <div className="mt-16">
-          <Link to={"/login"}>Login Instead</Link>
+        <div className="mt-16 flex justify-center space-x-1">
+          <p class="text-[#1E232C] font-medium">Already have an account?</p>
+          <Link class="text-[#35C2C1] font-medium" to={"/login"}>
+            Login Instead
+          </Link>
         </div>
       </form>
     </div>
