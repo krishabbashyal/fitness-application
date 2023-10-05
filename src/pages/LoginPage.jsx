@@ -26,7 +26,7 @@ function LoginPage() {
     <div className="text-center justify-center align-middle mt-32 mx-4 max-w-lg">
       <h1 className="mb-6 text-[32px] font-semibold">Login</h1>
       <form>
-        <div className="flex flex-col space-y-2">
+        <div className="flex flex-col space-y-3">
           <input
             type="email"
             placeholder="Email"
