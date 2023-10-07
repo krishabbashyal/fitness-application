@@ -23,6 +23,12 @@ function RegisterPage() {
     console.log(confirmError)
   }
 
+  const validateForm = (event) => {
+    event.preventDefault()
+    console.log("Validating Form")
+    // If form is valid call submitHandler()
+  }
+
   const submitHandler = async (event) => {
     event.preventDefault();
     if (confirmPassword === password) {
@@ -42,32 +48,32 @@ function RegisterPage() {
   };
 
   return (
-    <div className="text-center justify-center align-middle mt-32 mx-4 max-w-lg">
+    <div className="text-center justify-center align-middle mt-28 mx-4 max-w-lg">
       <h1 className="mb-6 text-[32px] font-semibold">Register</h1>
       <form>
         <div className="flex flex-col">
           <input
             type="email"
             placeholder="Email"
-            className="rounded-lg pl-3 border placeholder:font-medium border-[#E8ECF4] h-14"
+            className={`rounded-lg pl-3 placeholder:font-medium h-14 ${emailError ? 'border-[#EF4444] border-2 placeholder:text-[#991B1B]' : 'border-[#E8ECF4] border mb-3'}`}
             onChange={(event) => setEmail(event.target.value)}
           />
-          { emailError ? <p className='text-left mt-1.5 text-[#991B1B]'>Please enter a valid email address</p> : null }
+          { emailError ? <p className='text-left mt-1 mb-2.5 text-[#991B1B]'>Please enter a valid email address</p> : null }
           <input
             type="password"
             placeholder="Password"
-            className="rounded-lg pl-3 border placeholder:font-medium border-[#E8ECF4] h-14 mt-3"
+            className={`rounded-lg pl-3 placeholder:font-medium h-14 ${passwordError ? 'border-[#EF4444] border-2 placeholder:text-[#991B1B]' : 'border-[#E8ECF4] border mb-3'}`}
             onChange={(event) => setPassword(event.target.value)}
           />
-          { passwordError ? <p className='text-left mt-1.5 text-[#991B1B]'>Password should be at least 6 characters</p> : null }
+          { passwordError ? <p className='text-left mt-1 mb-2.5 text-[#991B1B]'>Password should be at least 6 characters</p> : null }
           
           <input
             type="password"
             placeholder="Confirm password"
-            className="rounded-lg pl-3 border placeholder:font-medium border-[#E8ECF4] h-14 mt-3"
+            className={`rounded-lg pl-3 placeholder:font-medium h-14 ${confirmError ? 'border-[#EF4444] border-2 placeholder:text-[#991B1B]' : 'border-[#E8ECF4] border mb-3'}`}
             onChange={(event) => setConfirmPassword(event.target.value)}
           />
-          { passwordError ? <p className='text-left mt-1.5 text-[#991B1B]'>Passwords do not match</p> : null }
+          { passwordError ? <p className='text-left mt-1 mb-2.5 text-[#991B1B]'>Passwords do not match</p> : null }
           
           <button onClick={submitHandler} className="rounded-md p-4 mt-5 bg-[#475E88] font-semibold text-white">
             Register
