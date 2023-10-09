@@ -13,16 +13,6 @@ function RegisterPage() {
 
   const customRedirect = useNavigate();
 
-  const toggleErrors = (event) => {
-    event.preventDefault()
-    setEmailError(!emailError)
-    console.log(emailError)
-    setPasswordError(!passwordError)
-    console.log(passwordError)
-    setConfirmError(!confirmError)
-    console.log(confirmError)
-  }
-
   const validateForm = (event) => {
     event.preventDefault()
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -99,11 +89,7 @@ function RegisterPage() {
           
           <button onClick={validateForm} className="rounded-md p-4 mt-5 bg-[#475E88] font-semibold text-white">
             Register
-          </button>
-          <button onClick={toggleErrors} className="rounded-md p-4 bg-red-900 font-semibold text-white mt-9">
-            Toggle errors
-          </button>
-          
+          </button>          
         </div>
         <div className="mt-16 flex justify-center space-x-1">
           <p className="text-[#1E232C] font-medium">Already have an account?</p>
