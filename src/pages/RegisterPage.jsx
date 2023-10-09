@@ -54,8 +54,6 @@ function RegisterPage() {
         console.log(data);
         customRedirect("/dashboard");
       }
-    } else {
-      alert("Passwords do not match");
     }
   };
 
