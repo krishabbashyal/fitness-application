@@ -1,9 +1,16 @@
-import React from 'react'
+import React from "react";
 
-const ErrorBanner = () => {
+function ErrorBanner() {
   return (
-    <div>ErrorBanner</div>
-  )
+    <div
+      className=" flex justify-center items-center mb-3 rounded-md w-auto
+     h-12 bg-[#FFB1B1] shrink-0 "
+    >
+      <p className="text-[#991B1B] text-[15px] text-center font-Rubik font-normal not-italic leading-4  ">
+        User already registered
+      </p>
+    </div>
+  );
 }
 
-export default ErrorBanner
+export default ErrorBanner;
