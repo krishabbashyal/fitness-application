@@ -1,21 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../library/supabase";
 import { useEffect, useState } from "react";
+import GreetingBar from "../components/GreetingBar";
 
 function DashboardPage() {
   const customRedirect = useNavigate();
-  const [email, setEmail] = useState(null);
-
-  const getCurrentUser = async () => {
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-    setEmail(user.email);
-  };
-
-  useEffect(() => {
-    getCurrentUser();
-  }, []);
 
   const handleSignOut = async () => {
     let { error } = await supabase.auth.signOut();
@@ -27,10 +16,8 @@ function DashboardPage() {
     }
   };
   return (
-    <div className="text-center flex flex-col justify-center align-middle mt-24 mx-4">
-      <h1>Hi, {email}.</h1>
-      <button onClick={handleSignOut}>Sign Out</button>
-      <button onClick={getCurrentUser}>Log User Data</button>
+    <div>
+      <GreetingBar/>
     </div>
   );
 }
