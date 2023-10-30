@@ -1,23 +1,24 @@
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../library/supabase";
-import { useEffect, useState } from "react";
 import GreetingBar from "../components/GreetingBar";
+import RoutineCard from "../components/RoutineCard";
 
 function DashboardPage() {
-  const customRedirect = useNavigate();
+  // const customRedirect = useNavigate();
 
-  const handleSignOut = async () => {
-    let { error } = await supabase.auth.signOut();
-    if (error) {
-      console.log(error);
-    } else {
-      console.log("Signed Out");
-      customRedirect("/");
-    }
-  };
+  // const handleSignOut = async () => {
+  //   let { error } = await supabase.auth.signOut();
+  //   if (error) {
+  //     console.log(error);
+  //   } else {
+  //     console.log("Signed Out");
+  //     customRedirect("/");
+  //   }
+  // };
   return (
-    <div>
+    <div class="mx-4">
       <GreetingBar/>
+      <RoutineCard/>
     </div>
   );
 }
