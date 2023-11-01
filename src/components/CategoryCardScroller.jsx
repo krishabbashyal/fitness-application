@@ -9,6 +9,8 @@ const CategoryCardScroller = () => {
       <CategoryCard label="Legs" active={false}/>
       <CategoryCard label="Shoulders" active={false}/>
       <CategoryCard label="Arms" active={false}/>
+      <CategoryCard label="Abs" active={false}/>
+
     </div>
   )
 }
