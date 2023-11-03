@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import CategoryCard from "./CategoryCard";
 
 const CategoryCardScroller = () => {
@@ -10,19 +10,19 @@ const CategoryCardScroller = () => {
   // const [armsActive, setArmsActive] = useState(false);
   // const [absActive, setAbsActive] = useState(false);
 
-  const toggleActive = () => {
+  function toggleActive(){
     console.log("clicked")
-  };
+  }
 
   return (
     <div className="flex space-x-1 overflow-x-scroll pb-3">
-      <CategoryCard label="All" active={true} onClick={toggleActive}/>
-      <CategoryCard label="Chest" active={true} onClick={toggleActive}/>
-      <CategoryCard label="Back" active={true} onClick={toggleActive}/>
-      <CategoryCard label="Legs" active={true} onClick={toggleActive}/>
-      <CategoryCard label="Shoulders" active={false} onClick={toggleActive}/>
-      <CategoryCard label="Arms" active={true} onClick={toggleActive}/>
-      <CategoryCard label="Abs" active={true} onClick={toggleActive}/>
+      <CategoryCard onClick={toggleActive} label="All" active={true}/>
+      <CategoryCard onClick={toggleActive} label="Chest" active={true}/>
+      <CategoryCard onClick={toggleActive} label="Back" active={true}/>
+      <CategoryCard onClick={toggleActive} label="Legs" active={true}/>
+      <CategoryCard onClick={toggleActive} label="Shoulders" active={false}/>
+      <CategoryCard onClick={toggleActive} label="Arms" active={true}/>
+      <CategoryCard onClick={toggleActive} label="Abs" active={true}/>
     </div>
   );
 };
