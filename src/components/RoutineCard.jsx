@@ -10,12 +10,11 @@ const RoutineCard = () => {
       <div className="mt-5 flex justify-between">
         <div className="flex space-x-2">
           <img className="w-6" src="./icons/timeCircle.svg" alt="Time Circle" />
-          <p className="mt-0.5">40 Mins</p>
+          <p className="">40 Mins</p>
         </div>
         <div>
-          <button className="absolute right-12 top-52">
-            <img className="absolute left-4 top-3" src="./icons/StartIcon.svg" alt="Time Circle" />
-            <img src="./icons/ButtonBackground.svg" alt="Time Circle" />
+          <button className="absolute bg-white text-black border-[4px] h-[52px] w-[52px] border-[#35C2C1] p-2 right-10 top-[196px] rounded-full">
+          <img className="w-5 m-auto mr-0.5" src="./icons/StartIcon.svg" alt="Time Circle" />
           </button>
         </div>
       </div>

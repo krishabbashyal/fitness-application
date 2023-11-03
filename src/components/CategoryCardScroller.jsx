@@ -4,6 +4,7 @@ import CategoryCard from './CategoryCard'
 const CategoryCardScroller = () => {
   return (
     <div className="flex space-x-1 overflow-x-scroll pb-3">
+      <CategoryCard label="All" active={false}/>
       <CategoryCard label="Chest" active={true}/>
       <CategoryCard label="Back" active={false}/>
       <CategoryCard label="Legs" active={false}/>
