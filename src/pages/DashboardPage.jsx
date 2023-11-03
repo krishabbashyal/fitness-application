@@ -18,7 +18,7 @@ function DashboardPage() {
     }
   };
   return (
-    <div class="mx-4">
+    <div className="mx-4">
       <GreetingBar/>
       <SectionHeader header="Today's workout"/>
       <RoutineCard/>
