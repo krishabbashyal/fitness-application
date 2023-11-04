@@ -1,8 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../library/supabase";
-import { useEffect, useState } from "react";
 import GreetingBar from "../components/GreetingBar";
-import NavBar from "../components/NavBar";
+import RoutineCard from "../components/RoutineCard";
+import SectionHeader from "../components/SectionHeader";
+import CategoryCardScroller from "../components/CategoryCardScroller";
 
 function DashboardPage() {
   const customRedirect = useNavigate();
@@ -17,8 +18,15 @@ function DashboardPage() {
     }
   };
   return (
-    <div>
+    <div className="mx-4">
       <GreetingBar/>
+      <SectionHeader header="Today's workout"/>
+      <RoutineCard/>
+      <SectionHeader header="Your progress" seeAll={true}/>
+      <SectionHeader header="Browse new routines" seeAll={true}/>
+      <CategoryCardScroller/>
+      <SectionHeader header="Popular routines"/>
+      <button className="mt-52 rounded-md w-full p-5 bg-red-500 text-white"  onClick={handleSignOut}>Sign Out</button>
       <NavBar />
     </div>
   );
