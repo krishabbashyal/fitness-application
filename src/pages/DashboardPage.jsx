@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { supabase } from "../library/supabase";
 import { useEffect, useState } from "react";
 import GreetingBar from "../components/GreetingBar";
+import NavBar from "../components/NavBar";
 
 function DashboardPage() {
   const customRedirect = useNavigate();
@@ -18,6 +19,7 @@ function DashboardPage() {
   return (
     <div>
       <GreetingBar/>
+      <NavBar />
     </div>
   );
 }
