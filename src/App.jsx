@@ -5,6 +5,7 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import DashboardPage from "./pages/DashboardPage";
 import ProtectedRoute from "./utilities/ProtectedRoute";
+import OnboardingPage from "./pages/OnboardingPage";
 
 
 // Do not make changes to this unless we need to alter the router
@@ -17,6 +18,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} exact/>
         <Route element={<ProtectedRoute/>}>
           <Route path="/dashboard" element={<DashboardPage/>} exact/>
+          <Route path="/onboarding" element={<OnboardingPage/>} exact/>
         </Route>
       </Routes>
     </Router>
