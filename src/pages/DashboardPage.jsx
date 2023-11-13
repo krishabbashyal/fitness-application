@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { supabase } from "../library/supabase";
 import GreetingBar from "../components/GreetingBar";
 import RoutineCard from "../components/RoutineCard";
+import NavBar from "../components/NavBar";
 import SectionHeader from "../components/SectionHeader";
 import CategoryCardScroller from "../components/CategoryCardScroller";
 

@@ -1,7 +1,7 @@
 import { supabase } from "../library/supabase";
 import { useEffect, useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
-import LoginPage from "../pages/LoginPage"
+import LoadingPage from "../pages/LoadingPage"
 
 const ProtectedRoute = () => {
   const customRedirect = useNavigate();
@@ -21,8 +21,7 @@ const ProtectedRoute = () => {
   }, []);
 
   if (loading) {
-    // Render a loading spinner or message while checking for user authentication
-    return <LoginPage/>
+    return <LoadingPage/>
   }
 
   return <Outlet />;

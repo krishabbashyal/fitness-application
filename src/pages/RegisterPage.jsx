@@ -52,7 +52,7 @@ function RegisterPage() {
         console.log(error.message);
       } else {
         console.log(data);
-        customRedirect("/dashboard");
+        customRedirect("/onboarding");
       }
     }
   };
