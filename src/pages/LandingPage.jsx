@@ -1,3 +1,4 @@
+
 import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "../library/supabase";
 import { useEffect } from "react";
@@ -16,27 +17,17 @@ function LandingPage() {
         console.error("Error fetching user:", error.message);
       }
     }
-
-    // Ensure the component is still mounted before redirecting
-    let isMounted = true;
-
     getUser();
-
-    return () => {
-      isMounted = false;
-    };
-  }, [customRedirect]);
+  }, []);
 
   return (
     <div>
       <p className="mt-24">
         There is not much here, click{" "}
-        <button className="text-blue-600 text-2xl p-4">
-          <Link to={"/register"}>this</Link>
-        </button>{" "}
+        <Link to={"/register"} className="text-blue-600 text-2xl p-4">this</Link>{" "}
         instead.
       </p>
-      <p className="mt-24">To Do: See if we can store the user object in the browser local storage or some other type of cache</p>
+      {/* TODO: Explore caching the user object in browser local storage or other caching mechanisms */}
     </div>
   );
 }
