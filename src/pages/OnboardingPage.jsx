@@ -1,24 +1,39 @@
 import React, { useState } from "react";
+import { supabase } from "../library/supabase";
 
 const OnboardingPage = () => {
   const [name, setName] = useState("");
   const [gender, setGender] = useState("");
   const [heightFeet, setHeightFeet] = useState("");
   const [heightInches, setHeightInches] = useState("");
-  const [heightCentimeter, setHeightCentimeter] = useState("");
   const [weight, setWeight] = useState("");
 
-  const convertToCentimeter = () => {
+  const convertToCentimeter = async () => {
     const totalInches = parseInt(heightFeet) * 12 + parseInt(heightInches);
-    const heightInCentimeters = totalInches * 2.54;
-    setHeightCentimeter(heightInCentimeters)
+    const heightCentimeters = totalInches * 2.54;
 
-      console.log(`Name: ${name}`);
-      console.log(`Gender: ${gender}`);
-      console.log(`Height: ${heightFeet}' ${heightInches}"`);
-      console.log(`Converted Height: ${heightInCentimeters}cm`);
-      console.log(`Weight: ${weight}`);
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
 
+    try {
+      const { data, error } = await supabase
+        .from("profiles")
+        .update({
+          display_name: name,
+          height: heightCentimeters,
+          weight: weight,
+          gender: gender,
+        })
+        .eq("id", user.id);
+      if (error) {
+        console.error("Error inserting data:", error.message);
+      } else {
+        console.log("Data inserted successfully:", data);
+      }
+    } catch (error) {
+      console.error("Error:", error.message);
+    }
   };
 
   return (
