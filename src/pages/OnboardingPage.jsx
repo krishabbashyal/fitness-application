@@ -8,6 +8,8 @@ const OnboardingPage = () => {
   const [heightInches, setHeightInches] = useState("");
   const [weight, setWeight] = useState("");
 
+  const [formStep, setFormStep] = useState(1);
+
   const convertToCentimeter = async () => {
     const totalInches = parseInt(heightFeet) * 12 + parseInt(heightInches);
     const heightCentimeters = totalInches * 2.54;
@@ -30,30 +32,32 @@ const OnboardingPage = () => {
         console.error("Error inserting data:", error.message);
       } else {
         console.log("Data inserted successfully:", data);
+        setFormStep(2);
       }
     } catch (error) {
       console.error("Error:", error.message);
     }
   };
-
-  return (
-    <div>
+  if (formStep == 1) {
+    return (
       <div>
-        <h1>Hello There</h1>
-        <p>We need a little more information about you to get started</p>
-        <form className="flex flex-col space-y-4">
-          <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
-          <input type="text" placeholder="Gender" value={gender} onChange={(e) => setGender(e.target.value)} />
-          <input type="number" placeholder="Ft" value={heightFeet} onChange={(e) => setHeightFeet(e.target.value)} />
-          <input type="number" placeholder="In" value={heightInches} onChange={(e) => setHeightInches(e.target.value)} />
-          <input type="number" placeholder="Lbs" value={weight} onChange={(e) => setWeight(e.target.value)} />
-          <button type="button" onClick={convertToCentimeter}>
-            Continue
-          </button>
-        </form>
+        <div>
+          <h1>Hello There</h1>
+          <p>We need a little more information about you to get started</p>
+          <form className="flex flex-col space-y-4">
+            <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
+            <input type="text" placeholder="Gender" value={gender} onChange={(e) => setGender(e.target.value)} />
+            <input type="number" placeholder="Ft" value={heightFeet} onChange={(e) => setHeightFeet(e.target.value)} />
+            <input type="number" placeholder="In" value={heightInches} onChange={(e) => setHeightInches(e.target.value)} />
+            <input type="number" placeholder="Lbs" value={weight} onChange={(e) => setWeight(e.target.value)} />
+            <button type="button" onClick={convertToCentimeter}>
+              Continue
+            </button>
+          </form>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default OnboardingPage;
