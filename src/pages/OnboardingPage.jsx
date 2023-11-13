@@ -26,6 +26,7 @@ const OnboardingPage = () => {
           height: heightCentimeters,
           weight: weight,
           gender: gender,
+          completed_onboarding: true
         })
         .eq("id", user.id);
       if (error) {
