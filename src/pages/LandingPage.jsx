@@ -1,31 +1,31 @@
 import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "../library/supabase";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 function LandingPage() {
   const customRedirect = useNavigate();
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function getUser() {
       try {
-        const { data: user } = await supabase.auth.getUser();
-        if (user) {
+        const { data, error } = await supabase.auth.getSession();
+        if (data?.user) {
           customRedirect("/dashboard");
         }
       } catch (error) {
         console.error("Error fetching user:", error.message);
-      } finally {
-        setLoading(false);
       }
     }
 
-    getUser();
-  }, [customRedirect]);
+    // Ensure the component is still mounted before redirecting
+    let isMounted = true;
 
-  if (loading) {
-    return <p>Loading...</p>; // You might want to display a loading spinner or some indication that data is being fetched
-  }
+    getUser();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [customRedirect]);
 
   return (
     <div>
