@@ -15,7 +15,7 @@ const GreetingBar = () => {
   }, []);
   return (
     <div>
-      <h1 className="text-[32px] font-semibold my-3">Hi, {displayName}.</h1>
+      <h1 className="text-[32px] font-semibold my-3">Hi, {displayName}!</h1>
     </div>
   );
 };

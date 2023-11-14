@@ -19,17 +19,20 @@ function DashboardPage() {
     }
   };
   return (
-    <div className="mx-4">
-      <GreetingBar/>
-      <SectionHeader header="Today's workout"/>
-      <RoutineCard/>
-      <SectionHeader header="Your progress" seeAll={true}/>
-      <SectionHeader header="Browse new routines" seeAll={true}/>
-      <CategoryCardScroller/>
-      <SectionHeader header="Popular routines"/>
-      <button className="mt-52 rounded-md w-full p-5 bg-red-500 text-white"  onClick={handleSignOut}>Sign Out</button>
-      <NavBar />
+    <div>
+      <div className="mx-4">
+        <GreetingBar/>
+        <SectionHeader header="Today's workout"/>
+        <RoutineCard/>
+        <SectionHeader header="Your progress" seeAll={true}/>
+        <SectionHeader header="Browse new routines" seeAll={true}/>
+        <CategoryCardScroller/>
+        <SectionHeader header="Popular routines"/>
+        <button className="mt-52 rounded-md w-full p-5 bg-red-500 text-white"  onClick={handleSignOut}>Sign Out</button>
+      </div>
+        <NavBar />
     </div>
+
   );
 }
 
