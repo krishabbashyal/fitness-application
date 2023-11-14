@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { supabase } from "../library/supabase";
+import { useNavigate } from "react-router-dom";
+
 
 const OnboardingPage = () => {
   const [displayName, setDisplayName] = useState("");
@@ -7,10 +9,9 @@ const OnboardingPage = () => {
   const [dateOfBirth, setDateOfBirth] = useState("");
   const [goal, setGoal] = useState("");
 
-  const convertToCentimeter = async () => {
-    // const totalInches = parseInt(heightFeet) * 12 + parseInt(heightInches);
-    // const heightCentimeters = totalInches * 2.54;
+  const customRedirect = useNavigate();
 
+  const submitFormData = async () => {
     const {
       data: { user },
     } = await supabase.auth.getUser();
@@ -29,6 +30,8 @@ const OnboardingPage = () => {
         console.error("Error inserting data:", error.message);
       } else {
         console.log("Data inserted successfully:", data);
+        customRedirect('/dashboard')
+
       }
     } catch (error) {
       console.error("Error:", error.message);
@@ -88,7 +91,6 @@ const OnboardingPage = () => {
               placeholder="Select"
               value={goal}
               onChange={(e) => {
-
                 setGoal(e.target.value);
               }}>
               <option className = "py-2 border-b" value="Fat Loss">Fat Loss</option>
@@ -99,7 +101,7 @@ const OnboardingPage = () => {
             </select>
           </div>
           <div>
-            <button className="w-full bg-[#475E88] text-white font-semibold h-14 rounded-lg mt-24" type="button" onClick={convertToCentimeter}>
+            <button className="w-full bg-[#475E88] text-white font-semibold h-14 rounded-lg mt-24" type="button" onClick={submitFormData}>
               Continue
             </button>
           </div>
