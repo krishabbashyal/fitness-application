@@ -2,8 +2,11 @@ import NavBar from "../components/NavBar";
 
 const ProgressPage = () => {
   return (
-    <div><NavBar /></div>
-  )
-}
+    <div>
+      <p>Progres Page</p>
+      <NavBar activeButton="progress" />
+    </div>
+  );
+};
 
-export default ProgressPage
+export default ProgressPage;

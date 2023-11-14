@@ -30,7 +30,7 @@ function DashboardPage() {
         <SectionHeader header="Popular routines"/>
         <button className="mt-52 rounded-md w-full p-5 bg-red-500 text-white"  onClick={handleSignOut}>Sign Out</button>
       </div>
-        <NavBar />
+        <NavBar activeButton="dashboard"/>
     </div>
 
   );

@@ -2,7 +2,10 @@ import NavBar from "../components/NavBar";
 
 const ExplorePage = () => {
   return (
-    <div><NavBar /></div>
+    <div>
+      <p>Explore Page</p>
+      <NavBar activeButton="explore"/>
+    </div>
   )
 }
 
