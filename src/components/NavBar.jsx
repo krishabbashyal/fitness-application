@@ -1,97 +1,40 @@
 import { useState } from "react";
+import DashboardIcon from "../../public/icons/DashboardIcon.svg";
+import ExploreIcon from "../../public/icons/ExploreIcon.svg";
+import ProgressIcon from "../../public/icons/ProgressIcon.svg";
+import ProfileIcon from "../../public/icons/ProfileIcon.svg";
 
-export default function NavBar() {
-  const Menus = [
-    {
-      name: "Dashboard",
-      icon: (
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M6.66667 17.0128C6.66667 15.2025 6.66667 14.2973 7.03262 13.5016C7.39857 12.706 8.08583 12.1169 9.46034 10.9388L10.7937 9.7959C13.2781 7.6664 14.5203 6.60164 16 6.60164C17.4797 6.60164 18.7219 7.6664 21.2063 9.7959L22.5397 10.9388C23.9142 12.1169 24.6014 12.706 24.9674 13.5016C25.3333 14.2973 25.3333 15.2025 25.3333 17.0128V22.6667C25.3333 25.1808 25.3333 26.4379 24.5523 27.219C23.7712 28 22.5142 28 20 28H12C9.48585 28 8.22877 28 7.44772 27.219C6.66667 26.4379 6.66667 25.1808 6.66667 22.6667V17.0128Z"
-            stroke="#33363F"
-            stroke-width="2"
-          />
-          <path
-            d="M19.3333 28V21C19.3333 20.4477 18.8856 20 18.3333 20H13.6667C13.1144 20 12.6667 20.4477 12.6667 21V28"
-            stroke="#33363F"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
-      ),
-    },
-    {
-      name: "Explore",
-      icon: (
-        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M23.3333 14V20.5C23.3333 22.3856 23.3333 23.3284 22.7476 23.9142C22.1618 24.5 21.219 24.5 19.3333 24.5H7.58333C5.9725 24.5 4.66667 23.1942 4.66667 21.5833V21.5833C4.66667 19.9725 5.97251 18.6667 7.58334 18.6667H19.3333C21.219 18.6667 22.1618 18.6667 22.7476 18.0809C23.3333 17.4951 23.3333 16.5523 23.3333 14.6667V7.5C23.3333 5.61438 23.3333 4.67157 22.7476 4.08579C22.1618 3.5 21.219 3.5 19.3333 3.5H8.66667C6.78105 3.5 5.83824 3.5 5.25246 4.08579C4.66667 4.67157 4.66667 5.61438 4.66667 7.5V21.5833"
-            stroke="#33363F"
-            stroke-width="2"
-          />
-          <path d="M10.5 9.33333L17.5 9.33333" stroke="#33363F" stroke-width="2" stroke-linecap="round" />
-        </svg>
-      ),
-    },
-    {
-      name: "Progress",
-      icon: (
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M22.6875 28.1875H10.3125" stroke="#33363F" stroke-width="2" stroke-linecap="round" />
-          <path
-            d="M17.5 25.4375C17.5 25.9898 17.0523 26.4375 16.5 26.4375C15.9477 26.4375 15.5 25.9898 15.5 25.4375H17.5ZM15.5 25.4375V22H17.5V25.4375H15.5Z"
-            fill="#33363F"
-          />
-          <path d="M14.4375 13.0625H18.5625" stroke="#33363F" stroke-width="2" stroke-linecap="round" />
-          <path
-            d="M7.5625 19.9375C7.5625 19.9375 4.8125 17.875 4.8125 14.4375C4.8125 13.3851 4.8125 12.4616 4.8125 11.6867C4.8125 10.9895 4.8125 10.6408 4.89862 10.3569C5.09252 9.71773 5.59273 9.21752 6.23193 9.02362C6.51583 8.9375 6.86472 8.9375 7.5625 8.9375V8.9375C8.26028 8.9375 8.60917 8.9375 8.89307 9.02362C9.53227 9.21752 10.0325 9.71773 10.2264 10.3569C10.3125 10.6408 10.3125 10.9897 10.3125 11.6875V13.0625"
-            stroke="#33363F"
-            stroke-width="2"
-            stroke-linecap="round"
-          />
-          <path
-            d="M25.4375 19.9375C25.4375 19.9375 28.1875 17.875 28.1875 14.4375C28.1875 13.3851 28.1875 12.4616 28.1875 11.6867C28.1875 10.9895 28.1875 10.6408 28.1014 10.3569C27.9075 9.71773 27.4073 9.21752 26.7681 9.02362C26.4842 8.9375 26.1353 8.9375 25.4375 8.9375V8.9375C24.7397 8.9375 24.3908 8.9375 24.1069 9.02362C23.4677 9.21752 22.9675 9.71773 22.7736 10.3569C22.6875 10.6408 22.6875 10.9897 22.6875 11.6875V13.0625"
-            stroke="#33363F"
-            stroke-width="2"
-            stroke-linecap="round"
-          />
-          <path
-            d="M22.6875 16.4218V9.5625C22.6875 8.45793 21.7921 7.5625 20.6875 7.5625H12.3125C11.2079 7.5625 10.3125 8.45793 10.3125 9.5625V16.4218C10.3125 17.7592 10.9809 19.0081 12.0937 19.75L15.9453 22.3177C16.2812 22.5416 16.7188 22.5416 17.0547 22.3177L20.9063 19.75C22.0191 19.0081 22.6875 17.7592 22.6875 16.4218Z"
-            stroke="#33363F"
-            stroke-width="2"
-          />
-        </svg>
-      ),
-    },
-    {
-      name: "Profile",
-      icon: (
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M26.3032 27.2628C25.6955 25.5617 24.3563 24.0586 22.4935 22.9865C20.6306 21.9144 18.3481 21.3333 16 21.3333C13.6519 21.3333 11.3694 21.9144 9.50656 22.9865C7.64369 24.0586 6.30454 25.5617 5.6968 27.2628"
-            stroke="#33363F"
-            stroke-width="2"
-            stroke-linecap="round"
-          />
-          <circle cx="16" cy="10.6667" r="5.33333" stroke="#33363F" stroke-width="2" stroke-linecap="round" />
-        </svg>
-      ),
-    },
-  ];
-  const [active, setActive] = useState(0);
+import React from "react";
+
+const NavBar = () => {
   return (
-    <div className="bg-white w-full max-h-14 rounded-t-xl drop-shadow-md fixed bottom-0 z-50 -mx-4">
-      <ul className="flex space-x-14">
-        {Menus.map((menu, i) => (
-          <li key={i} className="">
-            <a className="flex flex-col justify-center items-center text-xs" onClick={() => setActive(i)}>
-              <span>{menu.icon}</span>
-              <span>{menu.name}</span>
-            </a>
-          </li>
-        ))}
-      </ul>
+    <div className="bg-white w-full h-16 drop-shadow-lg fixed bottom-0 z-50 flex justify-around">
+      <button>
+        <div>
+          <img className="ml-4 w-8 mt-0.5" src={DashboardIcon} alt="" />
+          <p className="text-sm">Dashboard</p>
+        </div>
+      </button>
+      <button>
+        <div>
+          <img className="ml-4 w-8 mt-0.5" src={ExploreIcon} alt="" />
+          <p className="text-sm">Explore</p>
+        </div>
+      </button>
+      <button>
+        <div>
+          <img className="ml-4 w-8 mt-0.5" src={ProgressIcon} alt="" />
+          <p className="text-sm">Progress</p>
+        </div>
+      </button>
+      <button>
+        <div>
+          <img className="ml-4 w-8 mt-0.5" src={ProfileIcon} alt="" />
+          <p className="text-sm">Profile</p>
+        </div>
+      </button>
     </div>
   );
-}
+};
+
+export default NavBar;

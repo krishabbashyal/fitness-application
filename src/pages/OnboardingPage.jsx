@@ -24,6 +24,7 @@ const OnboardingPage = () => {
           gender: gender,
           date_of_birth: dateOfBirth,
           current_goal: goal,
+          completed_onboarding: true
         })
         .eq("id", user.id);
       if (error) {
