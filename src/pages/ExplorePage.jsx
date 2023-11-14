@@ -1,8 +1,8 @@
-import React from 'react'
+import NavBar from "../components/NavBar";
 
 const ExplorePage = () => {
   return (
-    <div>ExplorePage</div>
+    <div><NavBar /></div>
   )
 }
 

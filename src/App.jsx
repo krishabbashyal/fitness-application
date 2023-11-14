@@ -6,6 +6,9 @@ import RegisterPage from "./pages/RegisterPage";
 import DashboardPage from "./pages/DashboardPage";
 import ProtectedRoute from "./utilities/ProtectedRoute";
 import OnboardingPage from "./pages/OnboardingPage";
+import ExplorePage from './pages/ExplorePage'
+import ProgressPage from './pages/ProgressPage'
+import ProfilePage from './pages/ProfilePage'
 
 
 // Do not make changes to this unless we need to alter the router
@@ -18,6 +21,9 @@ function App() {
         <Route path="/register" element={<RegisterPage />} exact/>
         <Route element={<ProtectedRoute/>}>
           <Route path="/dashboard" element={<DashboardPage/>} exact/>
+          <Route path="/explore" element={<ExplorePage/>} exact/>
+          <Route path="/progress" element={<ProgressPage/>} exact/>
+          <Route path="/profile" element={<ProfilePage/>} exact/>
           <Route path="/onboarding" element={<OnboardingPage/>} exact/>
         </Route>
       </Routes>

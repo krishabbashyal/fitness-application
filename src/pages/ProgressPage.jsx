@@ -1,7 +1,9 @@
-import React from 'react'
+import NavBar from "../components/NavBar";
 
-export const ProgressPage = () => {
+const ProgressPage = () => {
   return (
-    <div>ProgressPage</div>
+    <div><NavBar /></div>
   )
 }
+
+export default ProgressPage
