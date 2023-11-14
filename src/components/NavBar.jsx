@@ -8,29 +8,29 @@ import React from "react";
 
 const NavBar = () => {
   return (
-    <div className="bg-white w-full h-16 drop-shadow-lg fixed bottom-0 z-50 flex justify-around">
+    <div className="bg-white w-full h-[72px] rounded-t-lg drop-shadow-lg fixed bottom-0 z-50 flex justify-around">
       <button>
-        <div>
-          <img className="ml-4 w-8 mt-0.5" src={DashboardIcon} alt="" />
-          <p className="text-sm">Dashboard</p>
+        <div className="text-center">
+          <img className="ml-[19px] w-7" src={DashboardIcon} alt="" />
+          <p className="pt-1 text-sm">Dashboard</p>
         </div>
       </button>
       <button>
         <div>
-          <img className="ml-4 w-8 mt-0.5" src={ExploreIcon} alt="" />
-          <p className="text-sm">Explore</p>
+          <img className="ml-[11px] w-7" src={ExploreIcon} alt="" />
+          <p className="pt-1 text-sm">Explore</p>
         </div>
       </button>
       <button>
         <div>
-          <img className="ml-4 w-8 mt-0.5" src={ProgressIcon} alt="" />
-          <p className="text-sm">Progress</p>
+          <img className="ml-[14px] w-7" src={ProgressIcon} alt="" />
+          <p className="pt-1 text-sm">Progress</p>
         </div>
       </button>
       <button>
         <div>
-          <img className="ml-4 w-8 mt-0.5" src={ProfileIcon} alt="" />
-          <p className="text-sm">Profile</p>
+          <img className="ml-[6px] w-7" src={ProfileIcon} alt="" />
+          <p className="pt-1 text-sm">Profile</p>
         </div>
       </button>
     </div>
