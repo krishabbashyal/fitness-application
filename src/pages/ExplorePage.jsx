@@ -1,12 +1,12 @@
 import NavBar from "../components/NavBar";
 
-const ExplorePage = () => {
+const RoutinePage = () => {
   return (
     <div>
-      <p>Explore Page</p>
+      <p>Routine Page</p>
       <NavBar activeButton="explore"/>
     </div>
   )
 }
 
-export default ExplorePage
+export default RoutinePage
