@@ -28,8 +28,8 @@ function LandingPage() {
 
   return (
     <div className="mx-4">
-            <div className="flex w-full space-x-2 text-white font-semibold h-14 mt-2">
-        <button className="w-full mt-2 bg-[#475E88] rounded-lg" type="button">
+      <div className="flex w-full space-x-2 text-white font-semibold h-16 mt-2">
+        <button className="w-full mt-2 bg-[#008080] rounded-lg" type="button">
           <Link to={"/login"} className="w-full h-14">
             <p>Install Our App</p>
           </Link>
@@ -48,7 +48,6 @@ function LandingPage() {
           </Link>
         </button>
       </div>
-
     </div>
   );
 }
