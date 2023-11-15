@@ -19,11 +19,11 @@ const NavBar = (props) => {
           </div>
         </button>
         </Link>
-        <Link className="mt-3" to="/explore">
+        <Link className="mt-3" to="/routines">
         <button>
           <div className="flex flex-col justify-around">
-            <img className="ml-[12px] w-6" src={ExploreIcon} alt="" />
-            <p className={props.activeButton === 'explore' ? "border-b-2 border-black pt-1 text-sm" : "pt-1 text-sm"}>Explore</p>
+            <img className="ml-[17px] w-6" src={ExploreIcon} alt="" />
+            <p className={props.activeButton === 'routines' ? "border-b-2 border-black pt-1 text-sm" : "pt-1 text-sm"}>Routines</p>
           </div>
         </button>
         </Link>

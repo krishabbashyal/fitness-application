@@ -4,7 +4,7 @@ const RoutinePage = () => {
   return (
     <div>
       <p>Routine Page</p>
-      <NavBar activeButton="explore"/>
+      <NavBar activeButton="routines"/>
     </div>
   )
 }
