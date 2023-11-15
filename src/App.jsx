@@ -6,6 +6,7 @@ import RegisterPage from "./pages/RegisterPage";
 import DashboardPage from "./pages/DashboardPage";
 import ProtectedRoute from "./utilities/ProtectedRoute";
 import OnboardingPage from "./pages/OnboardingPage";
+import OnboardingTwoPage from "./pages/OnboardingTwoPage";
 import RoutinePage from './pages/RoutinePage'
 import ProgressPage from './pages/ProgressPage'
 import ProfilePage from './pages/ProfilePage'
@@ -25,6 +26,7 @@ function App() {
           <Route path="/progress" element={<ProgressPage/>} exact/>
           <Route path="/profile" element={<ProfilePage/>} exact/>
           <Route path="/onboarding" element={<OnboardingPage/>} exact/>
+          <Route path="/onboarding_step_two" element={<OnboardingTwoPage/>} exact/>
         </Route>
       </Routes>
     </Router>
