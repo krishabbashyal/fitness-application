@@ -1,37 +1,54 @@
 import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "../library/supabase";
 import { useEffect } from "react";
-import { data } from "autoprefixer";
 
 function LandingPage() {
   const customRedirect = useNavigate();
 
   useEffect(() => {
-    async function getUser() {
-      try {
-        const { data: { user } } = await supabase.auth.getUser();
-        if (user) {
-          customRedirect("/dashboard")
-        } else {
-          console.log("No logged in user")
-        }
-      } catch {
-        return
+    const handleRedirect = async () => {
+      const { data, error } = await supabase.from("profiles").select("completed_onboarding");
+
+      if (error) {
+        console.error("Error fetching profile data:", error);
+        return;
       }
-    }
-    getUser();
+
+      if (data.length === 0) {
+        console.warn("No profile data found");
+        return;
+      }
+
+      const redirectTo = data[0].completed_onboarding ? "/dashboard" : "/onboarding";
+      customRedirect(redirectTo);
+    };
+
+    handleRedirect();
   }, []);
 
   return (
-    <div>
-      <p className="mt-24">
-        There is not much here, click{" "}
-        <Link to={"/register"} className="text-blue-600 text-2xl p-4">
-          this
-        </Link>{" "}
-        instead.
-      </p>
-      {/* TODO: Explore caching the user object in browser local storage or other caching mechanisms */}
+    <div className="mx-4">
+            <div className="flex w-full space-x-2 text-white font-semibold h-14 mt-2">
+        <button className="w-full mt-2 bg-[#475E88] rounded-lg" type="button">
+          <Link to={"/login"} className="w-full h-14">
+            <p>Install Our App</p>
+          </Link>
+        </button>
+      </div>
+      <div className="flex w-full space-x-2 text-white font-semibold h-14 mt-2">
+        <button className="w-full bg-[#1E232C] rounded-lg" type="button">
+          <Link to={"/register"} className="w-full h-14">
+            <p>Register</p>
+          </Link>
+        </button>
+
+        <button className="w-full bg-[#475E88] rounded-lg" type="button">
+          <Link to={"/login"} className="w-full h-14">
+            <p>Login</p>
+          </Link>
+        </button>
+      </div>
+
     </div>
   );
 }

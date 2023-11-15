@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { supabase } from "../library/supabase";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const OnboardingTwoPage = () => {
   const [heightFeet, setHeightFeet] = useState("");
@@ -132,16 +132,13 @@ const OnboardingTwoPage = () => {
           </div>
         </div>
       </div>
-      <div className="flex space-x-2">
-      <button className="w-full bg-[#475E88] text-white font-semibold h-14 rounded-lg mt-24" type="button" onClick={submitFormData}>
-          Continue
+      <div className="flex justify-end space-x-2">
+        <button className="w-full bg-[#1E232C] text-white font-semibold h-14 rounded-lg mt-24" type="button">
+          <Link to={"/dashboard"} className="w-full h-14 bottom-0">
+            <p>Not Now</p>
+          </Link>
         </button>
-        <button className="w-full bg-[#475E88] text-white font-semibold h-14 rounded-lg mt-24" type="button" onClick={submitFormData}>
-          Continue
-        </button>
-      </div>
-      <div className="w-full text-center mt-5">
-        <h1>Not Now</h1>
+        <button className="w-full bg-[#475E88] text-white font-semibold h-14 rounded-lg mt-24" type="button" onClick={submitFormData}>Continue</button>
       </div>
     </div>
   );
