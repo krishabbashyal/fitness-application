@@ -16,7 +16,7 @@ const OnboardingTwoPage = () => {
   const customRedirect = useNavigate();
 
   const getAverage = (first, second) => {
-    return parseFloat(first) + parseFloat(second) / 2;
+    return (parseFloat(first) + parseFloat(second)) / 2;
   };
 
   const convertToCentimeter = (feet, inches) => {
