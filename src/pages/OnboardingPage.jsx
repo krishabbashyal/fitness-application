@@ -31,7 +31,7 @@ const OnboardingPage = () => {
         console.error("Error inserting data:", error.message);
       } else {
         console.log("Data inserted successfully:", data);
-        customRedirect('/dashboard')
+        customRedirect('/onboarding_step_two')
 
       }
     } catch (error) {
