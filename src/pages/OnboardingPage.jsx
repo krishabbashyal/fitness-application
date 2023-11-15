@@ -49,7 +49,7 @@ const OnboardingPage = () => {
           <div>
             <p className="font-medium">Display Name</p>
             <input
-              className="w-full placeholder:text-[#8391A1] pl-3 h-11 rounded-lg mt-1 border border-[#E8ECF4] "
+              className="w-full placeholder:text-[#8391A1] pl-3 h-[50px] rounded-lg mt-1 border border-[#E8ECF4] "
               type="text"
               placeholder="Name"
               value={displayName}
@@ -60,7 +60,7 @@ const OnboardingPage = () => {
             <div className="flex flex-col">
               <p className="font-medium">Gender</p>
               <select
-                className="w-full placeholder:text-[#8391A1] pl-3 h-11 rounded-lg mt-1 border border-[#E8ECF4]"
+                className="w-full placeholder:text-[#8391A1] pl-3 h-[50px] rounded-lg mt-1 border border-[#E8ECF4]"
                 value={gender}
                 onChange={(e) => setGender(e.target.value)}>
                 <option value="" disabled>
@@ -76,7 +76,7 @@ const OnboardingPage = () => {
             <div className="flex flex-col">
               <p className="font-medium">Birthday</p>
               <input
-                className="w-40 placeholder:text-[#8391A1] pl-2 h-11 rounded-lg mt-1 border border-[#E8ECF4]"
+                className="w-40 placeholder:text-[#8391A1] pl-2 h-[50px] rounded-lg mt-1 border border-[#E8ECF4]"
                 type="date"
                 value={dateOfBirth}
                 onChange={(e) => setDateOfBirth(e.target.value)}
