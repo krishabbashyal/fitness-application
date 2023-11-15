@@ -6,7 +6,7 @@ import RegisterPage from "./pages/RegisterPage";
 import DashboardPage from "./pages/DashboardPage";
 import ProtectedRoute from "./utilities/ProtectedRoute";
 import OnboardingPage from "./pages/OnboardingPage";
-import ExplorePage from './pages/ExplorePage'
+import RoutinePage from './pages/RoutinePage'
 import ProgressPage from './pages/ProgressPage'
 import ProfilePage from './pages/ProfilePage'
 
@@ -21,7 +21,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} exact/>
         <Route element={<ProtectedRoute/>}>
           <Route path="/dashboard" element={<DashboardPage/>} exact/>
-          <Route path="/explore" element={<ExplorePage/>} exact/>
+          <Route path="/routines" element={<RoutinePage/>} exact/>
           <Route path="/progress" element={<ProgressPage/>} exact/>
           <Route path="/profile" element={<ProfilePage/>} exact/>
           <Route path="/onboarding" element={<OnboardingPage/>} exact/>
