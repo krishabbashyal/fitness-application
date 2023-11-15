@@ -36,17 +36,17 @@ const ProfilePage = () => {
   return (
     <div>
       <div>
-        <div class="bg-custom-gradient h-[252px] flex flex-col justify-between items-center">
-          <p class="text-white text-xl font-medium mt-8">Profile</p>
-          <p class="text-white text-[22px] font-medium pb-10">{displayName}</p>
+        <div className="bg-custom-gradient h-[252px] flex flex-col justify-between items-center">
+          <p className="text-white text-xl font-medium mt-8">Profile</p>
+          <p className="text-white text-[22px] font-medium pb-10">{displayName}</p>
         </div>
         <div className="h-full rounded-t-3xl">
-          <div class="flex flex-col space-y-5 mx-4">
-            <button class="mt-[52px] h-[64px] w-full bg-[#1E232C] font-medium text-white rounded-lg">Change Information</button>
-            <button class="mt-8 h-[64px] w-full bg-[#1E232C] font-medium text-white rounded-lg">Settings</button>
-            <button class="mt-8 h-[64px] w-full bg-[#1E232C] font-medium text-white rounded-lg">Bug Report / Feature Request</button>
-            <button class="mt-8 h-[64px] w-full bg-[#1E232C] font-medium text-white rounded-lg">GitHub Repo</button>
-            <button class="mt-10 h-[64px] w-full bg-[#982F2F] font-medium text-white rounded-lg" onClick={handleSignOut}>Sign Out</button>
+          <div className="flex flex-col space-y-5 mx-4">
+            <button className="mt-[52px] h-[64px] w-full bg-[#1E232C] font-medium text-white rounded-lg">Change Information</button>
+            <button className="mt-8 h-[64px] w-full bg-[#1E232C] font-medium text-white rounded-lg">Settings</button>
+            <button className="mt-8 h-[64px] w-full bg-[#1E232C] font-medium text-white rounded-lg">Bug Report / Feature Request</button>
+            <button className="mt-8 h-[64px] w-full bg-[#1E232C] font-medium text-white rounded-lg">GitHub Repo</button>
+            <button className="mt-10 h-[64px] w-full bg-[#982F2F] font-medium text-white rounded-lg" onClick={handleSignOut}>Sign Out</button>
           </div>
         </div>
       </div>

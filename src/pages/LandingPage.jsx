@@ -1,30 +1,39 @@
 import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "../library/supabase";
 import { useEffect } from "react";
-import { data } from "autoprefixer";
 
 function LandingPage() {
   const customRedirect = useNavigate();
 
   useEffect(() => {
-    async function handleRedirect() {
- 
-        const { data: { user } } = await supabase.auth.getUser();
-        if (user) {
-            const { data, error } = await supabase.from("profiles").select("completed_onboarding");
-            if (data[0].completed_onboarding === false) {
-              customRedirect("/onboarding")
-            } else {
-              customRedirect('/dashboard')
-            }
-        } else {
-          console.log("No logged in user")
-        }
-    }
-
-
+    const handleRedirect = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) {
+        console.log("No logged in user");
+        return;
+      }
+  
+      const { data, error } = await supabase
+        .from("profiles")
+        .select("completed_onboarding");
+  
+      if (error) {
+        console.error('Error fetching profile data:', error);
+        return;
+      }
+  
+      if (data.length === 0) {
+        console.warn('No profile data found');
+        return;
+      }
+  
+      const redirectTo = data[0].completed_onboarding ? '/dashboard' : '/onboarding';
+      customRedirect(redirectTo);
+    };
+  
     handleRedirect();
   }, []);
+  
 
   return (
     <div>
