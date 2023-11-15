@@ -7,19 +7,23 @@ function LandingPage() {
   const customRedirect = useNavigate();
 
   useEffect(() => {
-    async function getUser() {
-      try {
+    async function handleRedirect() {
+ 
         const { data: { user } } = await supabase.auth.getUser();
         if (user) {
-          customRedirect("/dashboard")
+            const { data, error } = await supabase.from("profiles").select("completed_onboarding");
+            if (data[0].completed_onboarding === false) {
+              customRedirect("/onboarding")
+            } else {
+              customRedirect('/dashboard')
+            }
         } else {
           console.log("No logged in user")
         }
-      } catch {
-        return
-      }
     }
-    getUser();
+
+
+    handleRedirect();
   }, []);
 
   return (

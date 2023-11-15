@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { supabase } from "../library/supabase";
 import { useNavigate } from "react-router-dom";
 
-
 const OnboardingPage = () => {
   const [displayName, setDisplayName] = useState("");
   const [gender, setGender] = useState("");
@@ -24,15 +23,14 @@ const OnboardingPage = () => {
           gender: gender,
           date_of_birth: dateOfBirth,
           current_goal: goal,
-          completed_onboarding: true
+          completed_onboarding: true,
         })
         .eq("id", user.id);
       if (error) {
         console.error("Error inserting data:", error.message);
       } else {
         console.log("Data inserted successfully:", data);
-        customRedirect('/onboarding_step_two')
-
+        customRedirect("/onboarding_step_two");
       }
     } catch (error) {
       console.error("Error:", error.message);
@@ -86,19 +84,31 @@ const OnboardingPage = () => {
           <div className="flex flex-col">
             <p className="font-medium">Current Goal</p>
             <select
-              multiple
-              className="w-full placeholder:text-[#8391A1] pl-3 p-3 h-52 rounded-lg mt-1 border border-[#E8ECF4] "
+              className="w-full placeholder:text-[#8391A1] pl-3 p-3 h-[50px] rounded-lg mt-1 border border-[#E8ECF4] "
               type="text"
               placeholder="Select"
               value={goal}
               onChange={(e) => {
                 setGoal(e.target.value);
               }}>
-              <option className = "py-2 border-b" value="Fat Loss">Fat Loss</option>
-              <option className = "py-2 border-b" value="Muscle Gain">Muscle Gain</option>
-              <option className = "py-2 border-b" value="Improve Strength">Improve Strength</option>
-              <option className = "py-2 border-b" value="Endurance Training">Endurance Training</option>
-              <option className = "py-2 border-b" value="Other">Other</option>
+              <option value="" disabled>
+                Select
+              </option>
+              <option className="py-2 border-b" value="Fat Loss">
+                Fat Loss
+              </option>
+              <option className="py-2 border-b" value="Muscle Gain">
+                Muscle Gain
+              </option>
+              <option className="py-2 border-b" value="Improve Strength">
+                Improve Strength
+              </option>
+              <option className="py-2 border-b" value="Endurance Training">
+                Endurance Training
+              </option>
+              <option className="py-2 border-b" value="Other">
+                Other
+              </option>
             </select>
           </div>
           <div>
