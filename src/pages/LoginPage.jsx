@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { supabase } from "../library/supabase";
+import ErrorBanner from "../components/ErrorBanner";
 
 function LoginPage() {
   const [email, setEmail] = useState("");
@@ -8,6 +9,8 @@ function LoginPage() {
 
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
+
+  const [errorMsg, setErrorMsg] = useState("");
 
   const customRedirect = useNavigate();
 
@@ -49,7 +52,7 @@ function LoginPage() {
       password: password,
     });
     if (error) {
-      console.log(error.message);
+      setErrorMsg(error.message);
     } else {
       handleRedirect()
     }
@@ -58,6 +61,13 @@ function LoginPage() {
   return (
     <div className="text-center justify-center align-middle mt-28 mx-4 max-w-lg">
       <h1 className="mb-6 text-[32px] font-semibold">Login</h1>
+
+      {
+        errorMsg == "" ? null : 
+        <ErrorBanner message={errorMsg}/>
+      }
+    
+      
       <form>
         <div className="flex flex-col">
           <input

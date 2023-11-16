@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { supabase } from "../library/supabase";
+import ErrorBanner from "../components/ErrorBanner";
 
 function RegisterPage() {
   const [email, setEmail] = useState("");
@@ -10,6 +11,8 @@ function RegisterPage() {
   const [emailError, setEmailError] = useState(false)
   const [passwordError, setPasswordError] = useState(false)
   const [confirmError, setConfirmError] = useState(false)
+
+  const [errorMsg, setErrorMsg] = useState("");
 
   const customRedirect = useNavigate();
 
@@ -49,7 +52,7 @@ function RegisterPage() {
         password: password,
       });
       if (error) {
-        console.log(error.message);
+        setErrorMsg(error.message);
       } else {
         console.log(data);
         customRedirect("/onboarding");
@@ -60,6 +63,9 @@ function RegisterPage() {
   return (
     <div className="text-center justify-center align-middle mt-28 mx-4 max-w-lg">
       <h1 className="mb-6 text-[32px] font-semibold">Register</h1>
+      {
+        errorMsg == "" ? null : <ErrorBanner message={errorMsg}/>
+      }
       <form>
         <div className="flex flex-col">
           <input
