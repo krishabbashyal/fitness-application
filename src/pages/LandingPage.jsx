@@ -66,7 +66,7 @@ function LandingPage() {
         </div>
       </div>
       <div className="w-full flex text-white font-semibold my-4 h-14">
-        <button className="w-full mt-2 bg-[#008080] rounded-lg" type="button">
+        <button className="w-full bg-[#008080] rounded-lg" type="button">
           <Link to={"/login"} className="w-full h-14">
             <p>Install Our App</p>
           </Link>
