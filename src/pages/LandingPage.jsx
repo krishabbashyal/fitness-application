@@ -49,11 +49,8 @@ function LandingPage() {
           </Link>
         </button>
       </div>
-      <div className="mt-4">
-        <p>Join our community today and start your journey towards a healthier, more active lifestyle!</p>
-      </div>
 
-      <div className="-mx-4 bg-[#1E232C] text-white text-center py-2 mt-5">
+      <div className="-mx-4 py-2 mt-5 text-center">
         <div className="my-4 flex flex-col space-y-3 mx-4">
           <p className="font-semibold text-xl">Track Workouts Easily</p>
           <p className="font-light pb-3 border-b">Log gym sessions effortlessly, maintaining a consistent record of your fitness routine.</p>
@@ -65,12 +62,15 @@ function LandingPage() {
           <p className="font-light">Get customized weight suggestions tailored to your unique workout history and progress.</p>
         </div>
       </div>
-      <div className="w-full flex text-white font-semibold my-4 h-14">
+      <div className="w-full flex text-white font-semibold my-3 h-14">
         <button className="w-full bg-[#008080] rounded-lg" type="button">
           <Link to={"/login"} className="w-full h-14">
             <p>Install Our App</p>
           </Link>
         </button>
+      </div>
+      <div className="text-center bg-[#1E232C] -mx-4 mt-6">
+        <h1 className="py-6 text-white text-sm font-semibold"></h1>
       </div>
     </div>
   );
