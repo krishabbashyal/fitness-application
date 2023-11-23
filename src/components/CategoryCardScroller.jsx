@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CategoryCard from "./CategoryCard";
 import { supabase } from "../library/supabase";
+import { BrowseWorkoutCard } from "./BrowseWorkoutCard";
 
 const CategoryCardScroller = () => {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -12,7 +13,7 @@ const CategoryCardScroller = () => {
   };
 
   const fetchCategoryWorkouts = async (category) => {
-    const { data, error } = await supabase.from("workouts").select('workout_name').eq('targeted_muscle', category); // You might need to add a filter here based on the category
+    const { data, error } = await supabase.from("workouts").select('workout_name').eq('targeted_muscle', category);
     setWorkoutList(data);
   };
 
@@ -24,13 +25,9 @@ const CategoryCardScroller = () => {
     }
   }, [activeCategory]);
 
-  const disableAllCategories = () => {
-    setActiveCategory(null); // Disable all categories
-  };
 
   const activeCategoryChanged = (category) => {
-    disableAllCategories();
-    setActiveCategory(category); // Update the active category
+    setActiveCategory(category); 
   };
 
   return (
@@ -43,9 +40,9 @@ const CategoryCardScroller = () => {
         <CategoryCard onChildClick={() => activeCategoryChanged("Shoulders")} label="Shoulders" active={activeCategory === "Shoulders"} />
         <CategoryCard onChildClick={() => activeCategoryChanged("Arms")} label="Arms" active={activeCategory === "Arms"} />
       </div>
-      <div>
-        {workoutList.map((workout) => (
-          <p key={workout.id}>{workout.workout_name}</p>
+      <div className="mt-2">
+        {workoutList.map((data) => (
+          <BrowseWorkoutCard workoutTitle={data.workout_name} />
         ))}
       </div>
     </div>
