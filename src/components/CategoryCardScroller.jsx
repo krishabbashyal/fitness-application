@@ -1,39 +1,54 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CategoryCard from "./CategoryCard";
+import { supabase } from "../library/supabase";
 
 const CategoryCardScroller = () => {
-  const [allActive, setAllActive] = useState(true);
-  const [chestActive, setChestActive] = useState(false);
-  const [backActive, setBackActive] = useState(false);
-  const [legsActive, setLegsActive] = useState(false);
-  const [shouldersActive, setShouldersActive] = useState(false);
-  const [armsActive, setArmsActive] = useState(false);
-  const [absActive, setAbsActive] = useState(false);
+  const [activeCategory, setActiveCategory] = useState("All");
+  const [workoutList, setWorkoutList] = useState([]);
 
-  function disableAllCategories() {
-    setAllActive(false)
-    setChestActive(false)
-    setBackActive(false)
-    setLegsActive(false)
-    setShouldersActive(false)
-    setArmsActive(false)
-    setAbsActive(false)
-  }
+  const fetchAllWorkouts = async () => {
+    const { data, error } = await supabase.from("workouts").select("workout_name");
+    setWorkoutList(data);
+  };
 
-  function setActiveCategory(category){
-    disableAllCategories()
-    category(true)
-  }
+  const fetchCategoryWorkouts = async (category) => {
+    console.log(category + " triggered");
+    const { data, error } = await supabase.from("workouts").select('workout_name').eq('targeted_muscle', category); // You might need to add a filter here based on the category
+    setWorkoutList(data);
+  };
+
+  useEffect(() => {
+    if (activeCategory === "All") {
+      fetchAllWorkouts();
+    } else {
+      fetchCategoryWorkouts(activeCategory);
+    }
+  }, [activeCategory]);
+
+  const disableAllCategories = () => {
+    setActiveCategory(null); // Disable all categories
+  };
+
+  const activeCategoryChanged = (category) => {
+    disableAllCategories();
+    setActiveCategory(category); // Update the active category
+  };
 
   return (
-    <div className="flex space-x-1 overflow-x-scroll pb-3">
-      <CategoryCard onChildClick={() => setActiveCategory(setAllActive)} label="All" active={allActive}/>
-      <CategoryCard onChildClick={() => setActiveCategory(setChestActive)} label="Chest" active={chestActive}/>
-      <CategoryCard onChildClick={() => setActiveCategory(setBackActive)} label="Back" active={backActive}/>
-      <CategoryCard onChildClick={() => setActiveCategory(setLegsActive)} label="Legs" active={legsActive}/>
-      <CategoryCard onChildClick={() => setActiveCategory(setShouldersActive)} label="Shoulders" active={shouldersActive}/>
-      <CategoryCard onChildClick={() => setActiveCategory(setArmsActive)} label="Arms" active={armsActive}/>
-      <CategoryCard onChildClick={() => setActiveCategory(setAbsActive)} label="Abs" active={absActive}/>
+    <div>
+      <div className="flex space-x-1 overflow-x-scroll pb-3">
+        <CategoryCard onChildClick={() => activeCategoryChanged("All")} label="All" active={activeCategory === "All"} />
+        <CategoryCard onChildClick={() => activeCategoryChanged("Chest")} label="Chest" active={activeCategory === "Chest"} />
+        <CategoryCard onChildClick={() => activeCategoryChanged("Back")} label="Back" active={activeCategory === "Back"} />
+        <CategoryCard onChildClick={() => activeCategoryChanged("Legs")} label="Legs" active={activeCategory === "Legs"} />
+        <CategoryCard onChildClick={() => activeCategoryChanged("Shoulders")} label="Shoulders" active={activeCategory === "Shoulders"} />
+        <CategoryCard onChildClick={() => activeCategoryChanged("Arms")} label="Arms" active={activeCategory === "Arms"} />
+      </div>
+      <div>
+        {workoutList.map((workout) => (
+          <p key={workout.id}>{workout.workout_name}</p>
+        ))}
+      </div>
     </div>
   );
 };
