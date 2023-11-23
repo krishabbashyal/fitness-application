@@ -11,14 +11,14 @@ function DashboardPage() {
 
   return (
     <div>
-      <div className="mx-4">
+      <div className="mx-4 pb-[108px]">
         <GreetingBar/>
         <SectionHeader header="Today's workout"/>
         <RoutineCard/>
         <SectionHeader header="Your progress" seeAll={true}/>
-        <SectionHeader header="Browse new routines" seeAll={true}/>
+        <SectionHeader header="Browse new workouts" seeAll={true}/>
         <CategoryCardScroller/>
-        <SectionHeader header="Popular routines"/>
+        
       </div>
         <NavBar activeButton="dashboard"/>
     </div>
