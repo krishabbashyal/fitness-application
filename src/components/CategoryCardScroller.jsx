@@ -12,7 +12,6 @@ const CategoryCardScroller = () => {
   };
 
   const fetchCategoryWorkouts = async (category) => {
-    console.log(category + " triggered");
     const { data, error } = await supabase.from("workouts").select('workout_name').eq('targeted_muscle', category); // You might need to add a filter here based on the category
     setWorkoutList(data);
   };
