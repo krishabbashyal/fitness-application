@@ -11,7 +11,9 @@ const ProgressPage = () => {
       <SectionHeader header="Your Personal Records"/>
         <PersonalRecordsContainer/>
       <SectionHeader customClass="mt-4" header="Your Progress"/>
+      <ProgressCharts label="Bench Press Max (in)"/>
       <ProgressCharts label="Chest (in)"/>
+      <ProgressCharts label="Stomach (in)"/>
 
 
       </div>
