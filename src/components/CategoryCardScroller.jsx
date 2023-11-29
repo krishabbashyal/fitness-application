@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CategoryCard from "./CategoryCard";
 import { supabase } from "../library/supabase";
-import { BrowseWorkoutCard } from "./BrowseWorkoutCard";
+import { BrowseWrk } from "./BrowseWrk";
 
 const CategoryCardScroller = () => {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -42,7 +42,7 @@ const CategoryCardScroller = () => {
       </div>
       <div className="mt-2">
         {workoutList.map((data) => (
-          <BrowseWorkoutCard workoutTitle={data.workout_name} />
+          <BrowseWrk workoutTitle={data.workout_name} />
         ))}
       </div>
     </div>
