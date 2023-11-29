@@ -134,7 +134,7 @@ const OnboardingTwoPage = () => {
       </div>
       <div className="flex justify-end space-x-2">
         <button className="w-full bg-[#1E232C] text-white font-semibold h-14 rounded-lg mt-24" type="button">
-          <Link to={"/dashboard"} className="w-full h-14 bottom-0">
+          <Link to={"/routines"} className="w-full h-14 bottom-0">
             <p>Not Now</p>
           </Link>
         </button>

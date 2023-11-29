@@ -21,13 +21,13 @@ ChartJS.register(
   Legend
 );
 
-const ProgressCharts = (props) => {
+const ChartOne = (props) => {
   const data = {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    labels: ['11/08/23', '11/13/23', '11/16/23', '11/20/23', '11/23/23', '11/27/23'],
     datasets: [
       {
         label: 'Test Data',
-        data: [12, 9, 13, 15, 12, 13],
+        data: [160, 155, 165, 180, 185, 175],
         backgroundColor: [
           'rgba(30, 35, 44, 1.0)',
           // ... more colors
@@ -64,4 +64,4 @@ const ProgressCharts = (props) => {
   )
 }
 
-export default ProgressCharts
+export default ChartOne

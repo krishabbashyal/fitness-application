@@ -59,7 +59,7 @@ const WorkoutPage = () => {
           <p>Duration</p>
           <TimerComponent />
         </div>
-        <div className="rounded-lg h-[650px] w-[23.5rem] bg-[#E8DCDC] overflow-y-scroll">
+        <div className="rounded-lg h-[650px] w-[23.5rem] overflow-y-scroll">
           {routines.map((routine, routineIndex) => (
             <div key={routineIndex} className="mb-6">
               <h1 className="text-center text-xl font-semibold border-b border-gray-300 pb-3 mt-2">
