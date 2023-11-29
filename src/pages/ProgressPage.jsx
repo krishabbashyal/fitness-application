@@ -1,6 +1,9 @@
 import NavBar from "../components/NavBar";
 import PersonalRecordsContainer from "../components/PersonalRecordsContainer";
-import ProgressCharts from "../components/ProgressCharts";
+import ChartOne from "../components/ChartOne";
+import ChartTwo from "../components/ChartTwo";
+import ChartThree from "../components/ChartThree";
+
 import SectionHeader from "../components/SectionHeader";
 
 
@@ -11,9 +14,9 @@ const ProgressPage = () => {
       <SectionHeader header="Your Personal Records"/>
         <PersonalRecordsContainer/>
       <SectionHeader customClass="mt-4" header="Your Progress"/>
-      <ProgressCharts label="Bench Press Max (in)"/>
-      <ProgressCharts label="Chest (in)"/>
-      <ProgressCharts label="Stomach (in)"/>
+      <ChartOne label="Bench Press (lbs)"/>
+      <ChartTwo label="Chest (in)"/>
+      <ChartThree label="Stomach (in)"/>
 
 
       </div>
