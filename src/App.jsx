@@ -10,6 +10,7 @@ import OnboardingTwoPage from "./pages/OnboardingTwoPage";
 import RoutinePage from './pages/RoutinePage'
 import ProgressPage from './pages/ProgressPage'
 import ProfilePage from './pages/ProfilePage'
+import WorkoutPage from "./pages/WorkoutPage";
 
 
 // Do not make changes to this unless we need to alter the router
@@ -27,6 +28,7 @@ function App() {
           <Route path="/profile" element={<ProfilePage/>} exact/>
           <Route path="/onboarding" element={<OnboardingPage/>} exact/>
           <Route path="/onboarding_step_two" element={<OnboardingTwoPage/>} exact/>
+          <Route path="/workout" element={<WorkoutPage/>} exact/>
         </Route>
       </Routes>
     </Router>

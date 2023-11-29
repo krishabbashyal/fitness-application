@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const RoutineCard = () => {
   return (
@@ -13,9 +14,11 @@ const RoutineCard = () => {
           <p className="">40 Mins</p>
         </div>
         <div>
+          <Link to={"/workout"}>
           <button className="absolute bg-white text-black border-[4px] h-[52px] w-[52px] border-[#35C2C1] p-2 right-10 top-[196px] rounded-full">
           <img className="w-5 m-auto mr-0.5" src="./icons/StartIcon.svg" alt="Time Circle" />
           </button>
+          </Link>
         </div>
       </div>
     </div>
