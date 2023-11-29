@@ -72,7 +72,7 @@ const WorkoutPage = () => {
             </div>
           ))}
         </div>
-        <div className="flex justify-center">
+        <div className="flex justify-center pb-[108px]">
           <Link to={"/dashboard"}>
             <button className="rounded-md p-4 mt-3 bg-[#475E88] font-medium text-white">Finish Workout</button>
           </Link>
