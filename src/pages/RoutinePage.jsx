@@ -31,13 +31,15 @@ const RoutinePage = () => {
             {routines.map((routine) => (
               <RoutineInfoCard key={routine.id} workoutTitle={routine.workout_name} exerciseOne={routine.exercise_one} exerciseTwo={routine.exercise_two} exerciseThree={routine.exercise_three} exerciseFour={routine.exercise_four} exerciseFive={routine.exercise_five} />
             ))}
+                        <Link className="flex justify-center" to="/create_workout">
+              <button className="rounded-md w-full p-4 bg-[#475E88] font-medium text-white">Create Workout</button>
+            </Link>
           </div>
+          
         ) : (
           <div className="flex flex-col justify-center space-y-4 m-6">
             <p>When you create a workout it will show up here</p>
-            <Link className="flex justify-center" to="/create_workout">
-              <button className="rounded-md w-full p-4 bg-[#475E88] font-medium text-white">Create Workout</button>
-            </Link>
+
           </div>
         )}
       </div>
