@@ -5,14 +5,16 @@ const GetRoutines = (props) => {
 
   return (
     <div>
-      <p className='ml-2'>{props.workoutTitle}</p>
-      <p className='ml-2'>{props.exerciseOne}</p>
-      <p className='ml-2'>{props.exerciseTwo}</p>
-      <p className='ml-2'>{props.exerciseThree}</p>
-      <p className='ml-2'>{props.exerciseFour}</p>
-      <p className='ml-2'>{props.exerciseFive}</p>
-
-
+      <div className='border-2 mt-4'>
+        <p className=' text-center text-xl font-medium border-b py-3'>{props.workoutTitle}</p>
+        <div className='text-center flex flex-col space-y-2'>
+          <p className='mt-4'>{props.exerciseOne}</p>
+          <p className=''>{props.exerciseTwo}</p>
+          <p className=''>{props.exerciseThree}</p>
+          <p className=''>{props.exerciseFour}</p>
+          <p className='pb-2'>{props.exerciseFive}</p>
+        </div>
+      </div>
     </div>
   )
 }
