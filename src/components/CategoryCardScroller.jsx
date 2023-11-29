@@ -8,12 +8,12 @@ const CategoryCardScroller = () => {
   const [workoutList, setWorkoutList] = useState([]);
 
   const fetchAllWorkouts = async () => {
-    const { data, error } = await supabase.from("workouts").select("workout_name");
+    const { data, error } = await supabase.from("exercises").select("workout_name");
     setWorkoutList(data);
   };
 
   const fetchCategoryWorkouts = async (category) => {
-    const { data, error } = await supabase.from("workouts").select('workout_name').eq('targeted_muscle', category);
+    const { data, error } = await supabase.from("exercises").select('workout_name').eq('targeted_muscle', category);
     setWorkoutList(data);
   };
 
