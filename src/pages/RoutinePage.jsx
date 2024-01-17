@@ -77,7 +77,7 @@ const RoutinePage = () => {
           </div>
         ) : (
           <div className="flex flex-col justify-center mt-16">
-            <p className='text-center mb-4'>When you create a workout, it will show up here. Create your first workout to begin!</p>
+            <p className='text-center text-lg mb-4'>When you create a workout, it will show up here. Create your first workout to begin!</p>
             <Link className="flex justify-center" to="/create_workout">
               <button className="rounded-md w-full p-4 bg-[#475E88] font-medium text-white">
                 Create Workout
