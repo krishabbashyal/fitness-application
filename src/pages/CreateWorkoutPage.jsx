@@ -8,7 +8,7 @@ const CreateWorkoutPage = () => {
 
   return (
     <div>
-      <div className="mx-4 mt-10 pb-[108px]">
+      <div className="mx-4 mt-6 pb-[108px]">
         <SectionHeader header="Create a new workout" />
         <section>
           <p className="mt-4">What should we call this workout?</p>
@@ -20,6 +20,7 @@ const CreateWorkoutPage = () => {
             onChange={(e) => setWorkoutName(e.target.value)}
           />
         </section>
+        
         <button className="w-full bg-[#475E88] text-white font-semibold h-14 rounded-lg mt-4" type="button">
           Continue
         </button>
