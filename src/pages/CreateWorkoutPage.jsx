@@ -2,15 +2,14 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import SectionHeader from "../components/SectionHeader";
 import ErrorBanner from "../components/ErrorBanner";
+import ExerciseSwipeable from "../components/ExerciseSwipeable";
 
 import NavBar from "../components/NavBar";
 
 const CreateWorkoutPage = () => {
   const [workoutName, setWorkoutName] = useState("");
   const [exercise, setExerciseName] = useState("");
-
   const [exercisesList, setExerciseList] = useState([]);
-
   const [titleError, setTitleError] = useState("");
   const [exerciseError, setExerciseError] = useState("");
 
@@ -65,7 +64,10 @@ const CreateWorkoutPage = () => {
             </div>
           ))
         ) : (
-          <p className="text-center mt-36 text-gray-400">No exercises added yet</p>
+          <div>
+            <p className="text-center mt-36 text-gray-400">No exercises added yet</p>
+            <ExerciseSwipeable/>
+          </div>
         )}
       </div>
 
