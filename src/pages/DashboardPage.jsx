@@ -11,9 +11,9 @@ function DashboardPage() {
     <div>
       <div className="mx-4 pb-[108px]">
         <GreetingBar/>
-        <SectionHeader header="Let's Get Started!"/>
+        <SectionHeader text="Good To See You Again"/>
         <RoutineCard/>
-        <SectionHeader header="Browse Our Workout" seeAll={true}/>
+        <SectionHeader text="Browse Our Workout" seeAll={true}/>
         <CategoryCardScroller />
          
       </div>

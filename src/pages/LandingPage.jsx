@@ -49,19 +49,6 @@ function LandingPage() {
           </Link>
         </button>
       </div>
-
-      <div className="-mx-4 py-2 mt-5 text-center">
-        <div className="my-4 flex flex-col space-y-3 mx-4">
-          <p className="font-semibold text-xl">Track Workouts Easily</p>
-          <p className="font-light pb-3 border-b">Log gym sessions effortlessly, maintaining a consistent record of your fitness routine.</p>
-          <p className="font-semibold text-xl">Discover Insights</p>
-          <p className="font-light pb-3 border-b">Analyze your workout patterns with in-depth insights, helping you optimize your fitness strategy.</p>
-          <p className="font-semibold text-xl">Visualize Progress</p>
-          <p className="font-light pb-3 border-b">Watch as your body transforms and track your health improvements over time.</p>
-          <p className="font-semibold text-xl">Personalized Recommendations</p>
-          <p className="font-light">Get customized weight suggestions tailored to your unique workout history and progress.</p>
-        </div>
-      </div>
       <div className="w-full flex text-white font-semibold my-3 h-14">
         <button className="w-full bg-[#008080] rounded-lg" type="button">
           <Link to={"/login"} className="w-full h-14">
