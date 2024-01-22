@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 import NavBar from "../components/NavBar";
 import SectionHeader from "../components/SectionHeader";
@@ -20,10 +21,14 @@ const CreateWorkoutPage = () => {
             onChange={(e) => setWorkoutName(e.target.value)}
           />
         </section>
-        
-        <button className="w-full bg-[#475E88] text-white font-semibold h-14 rounded-lg mt-4" type="button">
-          Continue
+        <div className="flex justify-end space-x-2">
+        <button className="w-full bg-[#1E232C] text-white font-semibold h-14 rounded-lg mt-24" type="button">
+          <Link to={"/routines"} className="w-full h-14 bottom-0">
+            <p>Finish</p>
+          </Link>
         </button>
+        <button className="w-full bg-[#475E88] text-white font-semibold h-14 rounded-lg mt-24" type="button">Add Workout</button>
+      </div>
       </div>
       <NavBar activeButton="routines" />
     </div>
