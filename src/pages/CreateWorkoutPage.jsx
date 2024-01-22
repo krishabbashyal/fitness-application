@@ -59,14 +59,11 @@ const CreateWorkoutPage = () => {
       <div className="mx-4">
         {exercisesList.length > 0 ? (
           exercisesList.map((exercise, index) => (
-            <div key={index} className="p-2 text-center border rounded my-2">
-              {exercise}
-            </div>
+            <ExerciseSwipeable key={index} payload={exercisesList} className="p-2 text-center border rounded my-2"/>
           ))
         ) : (
           <div>
             <p className="text-center mt-36 text-gray-400">No exercises added yet</p>
-            <ExerciseSwipeable/>
           </div>
         )}
       </div>
