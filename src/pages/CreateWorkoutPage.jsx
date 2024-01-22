@@ -29,7 +29,7 @@ const CreateWorkoutPage = () => {
           onChange={(e) => setWorkoutName(e.target.value)}
         />
       </div>
-      <div className="bg-slate-200 py-5 rounded-t-2xl relative bottom-0 w-full">
+      <div className="bg-slate-200 py-5 rounded-t-2xl fixed bottom-20 w-full pb-8">
         <p className="text-center font-medium">Add Exersises</p>
         <div className="mx-4">
           <section className="mt-4 flex flex-col">
@@ -38,7 +38,6 @@ const CreateWorkoutPage = () => {
             <button className="bg-blue-400 text-white font-semibold h-11 rounded-lg w-full" onClick={() => addExercise(exercise)}>
               Add Exercise
             </button>
-            <div></div>
             <section className="flex flex-row gap-1 mt-2 ">
               <button className="bg-[#982F2F] w-full text-white font-semibold h-11 rounded-lg">
                 <Link to={"/routines"} className="w-full h-14">
