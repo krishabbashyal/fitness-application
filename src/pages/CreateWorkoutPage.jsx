@@ -26,21 +26,19 @@ const CreateWorkoutPage = () => {
     let cleanedExercise = title.replace(/\s+/g, " ").trim();
 
     if (exercisesList.includes(cleanedExercise)) {
-      setExerciseError("Exercise has already been added.")
+      setExerciseError("Exercise has already been added.");
       return;
     }
 
     if (cleanedExercise.length == 0) {
       setExerciseError("Cannot Add Empty Exercise");
-      return
-    } 
+      return;
+    }
 
     setExerciseList([...exercisesList, cleanedExercise]);
     setExerciseName("");
     setExerciseError("");
-    }
-
-
+  };
 
   return (
     <div>
@@ -58,12 +56,10 @@ const CreateWorkoutPage = () => {
 
       <div className="mx-4">
         {exercisesList.length > 0 ? (
-          exercisesList.map((exercise, index) => (
-            <ExerciseSwipeable key={index} payload={exercisesList} className="p-2 text-center border rounded my-2"/>
-          ))
+          exercisesList.map((exercise, index) => <ExerciseSwipeable key={index} payload={exercisesList} className="p-2 text-center border rounded my-2" />)
         ) : (
-          <div>
-            <p className="text-center mt-36 text-gray-400">No exercises added yet</p>
+          <div className="flex justify-center items-center h-full">
+            <p className="text-gray-500 py-24">No exercises added yet</p>
           </div>
         )}
       </div>
