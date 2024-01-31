@@ -27,24 +27,22 @@ function LandingPage() {
   }, []);
 
   return (
-    <div className="bg-neutral-500 h-full fixed w-full">
-      <div className="mx-4">
-        <div className="mt-56 text-center">
-          <h1 className="text-2xl font-semibold">Fitness Application</h1>
-          <p>Track and log your gym workouts.</p>
-          <div className="-mx-4 absolute bottom-16 flex justify-center w-full gap-14 font-medium">
-            <button type="button">
-              <Link to={"/register"}>
-                <p>Sign Up</p>
-              </Link>
-            </button>
-            <p className="font-normal">|</p>
-            <button type="button">
-              <Link to={"/login"}>
-                <p>Log In</p>
-              </Link>
-            </button>
-          </div>
+    <div className="mx-4">
+      <div className="mt-56 text-center">
+        <h1 className="text-2xl font-semibold">Fitness Application</h1>
+        <p>Track and log your gym workouts.</p>
+        <div className="-mx-4 absolute bottom-16 flex justify-center w-full gap-14 font-medium">
+          <button type="button">
+            <Link to={"/register"}>
+              <p>Sign Up</p>
+            </Link>
+          </button>
+          <p className="font-normal">|</p>
+          <button type="button">
+            <Link to={"/login"}>
+              <p>Log In</p>
+            </Link>
+          </button>
         </div>
       </div>
     </div>
