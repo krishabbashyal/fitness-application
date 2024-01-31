@@ -39,6 +39,11 @@ const CreateWorkoutPage = () => {
         return prevExercises; // Return previous state if exercise already exists
       }
 
+    if (exercisesList.length >= 8){
+      setTitleError("Limit of 8 exercises per workout")
+      return
+    }
+
       // Add the new exercise and clear errors
       setExerciseName("");
       setExerciseError("");
@@ -60,15 +65,15 @@ const CreateWorkoutPage = () => {
         {titleError.length > 0 && <ErrorBanner message={titleError} />}
       </div>
 
-      <div className="mx-4">
+      <div className="mx-4 overflow-scroll max-h-[468px] pb-36">
         {exercisesList.length > 0 ? (
           exercisesList.map((exercise, index) => (
-            <p key={index} className="p-4 text-lg border rounded my-2">
+            <p key={index} className="py-2 pl-4 text-lg border rounded my-2">
               {exercise}
             </p>
           ))
         ) : (
-          <div className="flex justify-center items-center h-full">
+          <div className="flex justify-center items-center">
             <p className="text-gray-500 py-24">No exercises added yet</p>
           </div>
         )}
