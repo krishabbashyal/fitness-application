@@ -21,7 +21,7 @@ ChartJS.register(
   Legend
 );
 
-const ChartThree = (props) => {
+const ProgressChart = (props) => {
   const data = {
     labels: ['06/01/23', '07/01/23', '08/01/23', '09/01/23', '10/01/23', '11/08/23'],
     datasets: [
@@ -64,4 +64,4 @@ const ChartThree = (props) => {
   )
 }
 
-export default ChartThree
+export default ProgressChart

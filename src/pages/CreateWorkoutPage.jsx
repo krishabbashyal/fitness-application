@@ -94,13 +94,13 @@ const CreateWorkoutPage = () => {
             </div>
 
             <section className="absolute bottom-7 flex w-full -mx-4">
-              <button className="text-[#982F2F] w-full font-semibold h-11 rounded-lg">
+              <button className="text-[#982F2F] mx-4 w-full font-semibold h-11 rounded-lg">
                 <Link to={"/routines"} className="w-full h-14">
                   <p>Cancel</p>
                 </Link>
               </button>
               <button
-                className="text-[#475E88] w-full  font-semibold h-11 rounded-lg"
+                className="text-[#475E88] w-full mx-4 font-semibold h-11 rounded-lg"
                 onClick={() => {
                   validateTitle(workoutName);
                 }}>
