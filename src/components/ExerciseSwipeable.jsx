@@ -4,7 +4,7 @@ import { useSwipeable } from 'react-swipeable';
 const ExerciseSwipeable = (props) => {
   // Initialize state 'items' with 'props.payload' (passed from parent component) or an empty array.
   const [items, setItems] = useState(props.payload || []);
-
+ 
   // Initialize a state 'swipeStatus' to keep track of which items are swiped.
   // It's a Map where keys are item names and values are boolean indicating swipe status.
   const [swipeStatus, setSwipeStatus] = useState(new Map());
