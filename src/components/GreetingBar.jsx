@@ -6,7 +6,7 @@ const GreetingBar = () => {
   const [displayName, setDisplayName] = useState(null);
 
   const getCurrentUser = async () => {
-    const { data, error } = await supabase.from("profiles").select("display_name");
+    const { data } = await supabase.from("profiles").select("display_name");
     setDisplayName(data[0].display_name)
   };
 

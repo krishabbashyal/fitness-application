@@ -31,6 +31,11 @@ const CreateWorkoutPage = () => {
       return;
     }
 
+    if (exercisesList.length >= 8){
+      setTitleError("Limit of 8 exercises per workout")
+      return;
+    }
+
     // Use functional update for the exercises list
     setExerciseList((prevExercises) => {
       // Check if the exercise is already in the list
@@ -38,11 +43,6 @@ const CreateWorkoutPage = () => {
         setExerciseError("Exercise has already been added.");
         return prevExercises; // Return previous state if exercise already exists
       }
-
-    if (exercisesList.length >= 8){
-      setTitleError("Limit of 8 exercises per workout")
-      return
-    }
 
       // Add the new exercise and clear errors
       setExerciseName("");
@@ -80,7 +80,7 @@ const CreateWorkoutPage = () => {
       </div>
 
       <div className="bg-[#1E232C] absolute bottom-20 py-5 pb-20 w-full rounded-t-xl">
-        <p className="text-center font-medium text-white mt-2"> Add exercises</p>
+        <p className="text-center font-medium text-white mt-2"> Add Exercises</p>
         <div className="mx-4">
           <section className="mt-4 flex flex-col">
             {exerciseError.length > 0 && <ErrorBanner message={exerciseError} />}
@@ -94,7 +94,7 @@ const CreateWorkoutPage = () => {
                 onChange={(e) => setExerciseName(e.target.value)}
               />
               <button className="bg-green-400 h-11 w-14 rounded-lg" onClick={() => validateExercise(exercise)}>
-                <p className="font-semibold">+</p>
+                <p className="font-semibold text-xl">+</p>
               </button>
             </div>
 
