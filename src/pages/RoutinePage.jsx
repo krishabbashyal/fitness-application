@@ -76,10 +76,11 @@ const RoutinePage = () => {
             </Link>
           </div>
         ) : (
-          <div className="flex flex-col justify-center mt-16">
-            <p className='text-center text-lg mb-4'>When you create a workout, it will show up here. Create your first workout to begin!</p>
+          <div className="-mx-4 bottom-1/2 flex flex-col justify-center absolute">
+            <h1 className='text-center text-xl font-semibold'>Create your first workout</h1>
+            <p className='text-center px-16 mt-1'>Your workout routines will show up here once you make them.</p>
             <Link className="flex justify-center" to="/create_workout">
-              <button className="rounded-md w-full p-4 bg-[#475E88] font-medium text-white">
+              <button className="rounded-md p-3.5 px-6 mt-5 bg-[#1E232C] font-medium text-white">
                 Create Workout
               </button>
             </Link>
