@@ -54,7 +54,7 @@ const CreateWorkoutPage = () => {
   return (
     <div>
       <div className="mx-4 mt-6 flex flex-col">
-        <SectionHeader text="Your Training Plan" />
+        <SectionHeader text="Create new workout" />
         <input
           type="text"
           className="mt-4 mb-2 h-12 placeholder:text-center placeholder:text-xl text-center text-2xl font-medium"
