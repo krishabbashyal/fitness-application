@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const Timer = () => {
+const WorkoutTimer = () => {
   const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [hours, setHours] = useState(0);
@@ -23,10 +23,10 @@ const Timer = () => {
     return () => clearInterval(interval);
   }, [seconds, minutes, hours]);
 
-  // Format the timer display
+  // Format the time display
   const formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 
   return <div className='text-3xl'>{formattedTime}</div>;
 };
 
-export default Timer;
+export default WorkoutTimer;

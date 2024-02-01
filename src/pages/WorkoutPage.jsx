@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import TimerComponent from "../components/Timer";
+import WorkoutTimer from "../components/WorkoutTimer";
 import { Link } from "react-router-dom";
 import { supabase } from "../library/supabase";
 import NavBar from "../components/NavBar";
@@ -57,7 +57,7 @@ const WorkoutPage = () => {
       <div className="grid justify-center mt-5">
         <div className="flex flex-col justify-center mt-4 mb-2">
           <p>Duration</p>
-          <TimerComponent />
+          <WorkoutTimer />
         </div>
         <div className="rounded-lg h-[650px] w-[23.5rem] overflow-y-scroll">
           {routines.map((routine, routineIndex) => (

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import SectionHeader from "../components/SectionHeader";
 import ErrorBanner from "../components/ErrorBanner";
+import SwipeableElement from "../components/SwipeableElement";
+
 
 import NavBar from "../components/NavBar";
 
@@ -68,9 +70,7 @@ const CreateWorkoutPage = () => {
       <div className="mx-4 overflow-scroll max-h-[468px] pb-36">
         {exercisesList.length > 0 ? (
           exercisesList.map((exercise, index) => (
-            <p key={index} className="py-2 pl-4 text-lg border rounded my-2">
-              {exercise}
-            </p>
+            <SwipeableElement key={index} workoutTitle={exercise}/>
           ))
         ) : (
           <div className="flex justify-center items-center">
